@@ -25,19 +25,23 @@ void humidity()
     //Read data and store it to variables hum and temp
     hum = dht.readHumidity();
     temp= dht.readTemperature();
+    
     //Print temp and humidity values to serial monitor
     lcd.setCursor(0,0);
-    lcd.print("humidity :-" + hum);
-     lcd.setCursor(0,1);
-    lcd.print(" %, Temp: " + temp);
+    lcd.print("Humidity :-");
+    lcd.setCursor(12,0);
+    lcd.print(hum);
+
+    
+    lcd.setCursor(0,1);
+    lcd.print(" Temp:- ");
+    lcd.setCursor(10,1);
+    lcd.print(temp);
+    
     delay(3000); //Delay 3 sec.
 }
 
 
 void loop() {
-  delay(1000);
-  lcd.setCursor(0, 0);
-  lcd.print("");
-  lcd.setCursor(0, 1);
-  lcd.print("Arduino_uno_guy");
+  humidity();
 }
